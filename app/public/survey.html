@@ -148,22 +148,22 @@
         name: $("input[type='text'][name='name']").val().trim(),
         photo: $("input[type='text'][name='photo']").val().trim(),
         scores: [
-                    $("input[type='radio'][name='q1']:checked").val().trim(),
-                    $("input[type='radio'][name='q2']:checked").val().trim(),
-                    $("input[type='radio'][name='q3']:checked").val().trim(),
-                    $("input[type='radio'][name='q4']:checked").val().trim(),
-                    $("input[type='radio'][name='q5']:checked").val().trim(),
-                    $("input[type='radio'][name='q6']:checked").val().trim(),
-                    $("input[type='radio'][name='q7']:checked").val().trim(),
-                    $("input[type='radio'][name='q8']:checked").val().trim(),
-                    $("input[type='radio'][name='q9']:checked").val().trim(),
-                    $("input[type='radio'][name='q10']:checked").val().trim()
+                    $("input[type='radio'][name='q1']:checked").val(),
+                    $("input[type='radio'][name='q2']:checked").val(),
+                    $("input[type='radio'][name='q3']:checked").val(),
+                    $("input[type='radio'][name='q4']:checked").val(),
+                    $("input[type='radio'][name='q5']:checked").val(),
+                    $("input[type='radio'][name='q6']:checked").val(),
+                    $("input[type='radio'][name='q7']:checked").val(),
+                    $("input[type='radio'][name='q8']:checked").val(),
+                    $("input[type='radio'][name='q9']:checked").val(),
+                    $("input[type='radio'][name='q10']:checked").val()
                             ]
                      };    
-            console.log(answers);
-
         for (var i = 0; i < answers.scores.length; i++){
-          console.log(answers.scores[i]);
+          if(!answers.scores[i])
+          alert("Oops! You didn't fill in all of the radio buttons!");
+          return;
         }
 
       $.post("/api/friends", answers,
@@ -174,7 +174,7 @@
           var newDiv = $("<div>")
           newDiv.append("<p><h2>You are most likely to be friends with: " + data[0].name + "</h2></p>")
            newDiv.append("<p><img src='" + data[0].photo + "'></p>")
-          $("#Friendfound").prepend(newDiv);
+          $("#Friendfound").html(newDiv);
 
           $(".footer").show();
           });
