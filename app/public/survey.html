@@ -161,6 +161,15 @@
                             ]
                      }; 
 
+            console.log(answers.scores[0]);
+          for (var i = 0; i < answers.scores.length; i++){
+            console.log(answers.scores[i]);
+            if (answers.scores[i] === undefined){
+              alert("You have not filled in every radio button!")
+              return;
+            }
+          }
+
       $.post("/api/friends", answers,
         function(data) {
 
