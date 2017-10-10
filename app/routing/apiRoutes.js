@@ -4,7 +4,7 @@
 // These data sources hold arrays of information on table-data, waitinglist, etc.
 // ===============================================================================
 
-var friendsData = require("../data/friends");
+var friends = require("../data/friends");
 
 // ===============================================================================
 // ROUTING
@@ -18,7 +18,7 @@ module.exports = function(app) {
   // ---------------------------------------------------------------------------
 
   app.get("/api/friends", function(req, res) {
-    res.json(tableData);
+    res.json(friends);
   });
 
 
@@ -30,29 +30,53 @@ module.exports = function(app) {
   // Then the server saves the data to the tableData array)
   // ---------------------------------------------------------------------------
 
-  app.post("/api/survey", function(req, res) {
+  app.post("/api/friends", function(req, res) {
+
+    var topscore = 40;
+    var topName = "";
+    var topPhoto = "";
+    var userData = {
+      name: req.body.name,
+      photo: req.body.photo,
+      scores: req.body['scores[]']
+    };
+
+    for (var i = 0; i < userData.scores.length; i++){
+          var result = parseInt(userData.scores[i]);
+          userData.scores[i] = result;
+        }
+
+    console.log(userData)
+    friends.push(userData);
+    //var userScores = userData.scores;
+    //console.log(userScores);
+    for(var i = 0; i < friends.length-1; i++){
+      var currentscore = 0;
+      for(var j = 0; j < userData.scores.length; j++){
+        if (friends[i].scores[j] > userData.scores[j]){
+          currentscore += (friends[i].scores[j] - userData.scores[j]);
+        }
+        else{
+          currentscore += (userData.scores[j] - friends[i].scores[j]);
+        }
+      }
+      if (currentscore < topscore){
+        topscore = currentscore;
+        topName = friends[i].name;
+        topPhoto = friends[i].photo;
+      }
+    }
+    console.log(topName);
+    console.log(topPhoto);
+    var topfigure = [{
+              name: topName,
+              photo: topPhoto,
+            }
+    ]
+
+    res.json(topfigure);
     // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
     // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body-parser middleware
-    if (tableData.length < 5) {
-      tableData.push(req.body);
-      res.json(true);
-    }
-    else {
-      waitListData.push(req.body);
-      res.json(false);
-    }
-  });
-
-  // ---------------------------------------------------------------------------
-  // I added this below code so you could clear out the table while working with the functionality.
-  // Don"t worry about it!
-
-  app.post("/api/clear", function() {
-    // Empty out the arrays of data
-    tableData = [];
-    waitListData = [];
-
-    console.log(tableData);
   });
 };
