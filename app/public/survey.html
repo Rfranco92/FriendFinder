@@ -159,12 +159,7 @@
                     $("input[type='radio'][name='q9']:checked").val(),
                     $("input[type='radio'][name='q10']:checked").val()
                             ]
-                     };    
-        for (var i = 0; i < answers.scores.length; i++){
-          if(!answers.scores[i])
-          alert("Oops! You didn't fill in all of the radio buttons!");
-          return;
-        }
+                     }; 
 
       $.post("/api/friends", answers,
         function(data) {
