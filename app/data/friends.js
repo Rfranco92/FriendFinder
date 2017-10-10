@@ -1,0 +1,165 @@
+var friendsArray = [
+{
+  "name":"Jack Sparrow",
+  "photo":"http://media.beliefnet.com/~/media/photos-with-attribution/entertainment/movies/jack-sparrow_credit-walt-disney-studios.jpg",
+  "scores":[
+      3,
+      5,
+      3,
+      1,
+      2,
+      4,
+      4,
+      2,
+      4,
+      3
+    ]
+},
+{
+  "name":"Atticus Finch",
+  "photo":"http://i.huffpost.com/gen/1622224/images/o-ATTICUS-FINCH-TO-KILL-A-MOCKINGBIRD-facebook.jpg",
+  "scores":[
+      2,
+      5,
+      5,
+      4,
+      5,
+      1,
+      1,
+      1,
+      1,
+      5
+    ]
+},
+{
+  "name":"The Dude",
+  "photo":"http://www.drinkinginamerica.com/wp-content/uploads/2012/08/TheDude_WhiteRussian.jpg",
+  "scores":[
+      4,
+      3,
+      2,
+      1,
+      1,
+      2,
+      3,
+      2,
+      2,
+      4
+    ]
+},
+{
+  "name":"Randy Marsh",
+  "photo":"https://uproxx.files.wordpress.com/2015/06/marsh-1.png?w=650&h=400",
+  "scores":[
+      4,
+      3,
+      3,
+      3,
+      4,
+      2,
+      2,
+      3,
+      4,
+      3
+    ]
+},
+{
+  "name":"Punisher",
+  "photo":"http://cdn2us.denofgeek.com/sites/denofgeekus/files/2016/03/punisher-1-maleev-variant-1.jpg",
+  "scores":[
+      3,
+      4,
+      4,
+      5,
+      3,
+      1,
+      5,
+      5,
+      2,
+      2
+    ]
+},
+{
+  "name":"Jason Voorhees",
+  "photo":"http://ll-c.ooyala.com/e1/FkMGR1YjE64W1anTlGorHQT4fLResacB/promo323797105",
+  "scores":[
+      1,
+      4,
+      5,
+      1,
+      1,
+      3,
+      5,
+      4,
+      5,
+      1
+    ]
+},
+{
+  "name":"Walter White",
+  "photo":"http://photo.cultjer.com/img/cache/width/1000/ug_photo/2014_11/40906420141110055401.jpg",
+  "scores":[
+      2,
+      5,
+      1,
+      5,
+      5,
+      5,
+      4,
+      3,
+      3,
+      3
+    ]
+},
+{
+  "name":"Bill S Preston",
+  "photo":"https://vignette.wikia.nocookie.net/epicrapbattlesofhistory/images/0/05/Bill_S._Preston_Based_On.png/revision/latest?cb=20150824014956",
+  "scores":[
+      3,
+      1,
+      2,
+      3,
+      4,
+      2,
+      1,
+      3,
+      3,
+      5
+    ]
+},
+{
+  "name":"Dr Zoidberg",
+  "photo":"https://static.comicvine.com/uploads/scale_small/0/40/102590-37996-dr-zoidberg.gif",
+  "scores":[
+      5,
+      1,
+      1,
+      2,
+      1,
+      2,
+      3,
+      2,
+      1,
+      1
+    ]
+},
+{
+  "name":"Burt Macklin",
+  "photo":"http://nerdist.com/wp-content/uploads/2017/05/chris-pratt-parks-and-rec-burt-macklin.jpg",
+  "scores":[
+      5,
+      2,
+      5,
+      3,
+      4,
+      1,
+      1,
+      5,
+      5,
+      5
+    ]
+}
+];
+
+// Note how we export the array. This makes it accessible to other files using require.
+module.exports = friendsArray;
